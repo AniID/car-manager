@@ -1,57 +1,58 @@
-
-<div class="container-fluid">
-  <a href="#" class="btn btn-success float-right" routerLink="/car">Add Car</a>
+<div class="row mt-4">
+  <div class="container">
+    <section class="card card-block table-responsive">
+      <table class="table table-hover"
+             [mfData]="data"
+             #mf="mfDataTable"
+             [mfRowsOnPage]="10">
+        <thead>
+        <tr>
+          <th style="width: 8%">
+            <mfDefaultSorter by="brand">Brand</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="model">Model</mfDefaultSorter>
+          </th>
+          <th style="width: 30%">
+            <mfDefaultSorter by="description">Description</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="registration_number">Registration Number</mfDefaultSorter>
+          </th>
+          <th style="width: 8%">
+            <mfDefaultSorter by="fuelType">Fuel Type</mfDefaultSorter>
+          </th>
+          <th style="width: 14%">
+            <mfDefaultSorter by="transmission">Transmission</mfDefaultSorter>
+          </th>
+          <th style="width: 20%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let car of mf.data">
+          <td>{{car.brand}}</td>
+          <td>{{car.model}}</td>
+          <td>{{car.description}}</td>
+          <td>{{car.registration_number}}</td>
+          <td>{{car.fuelType}}</td>
+          <td>{{car.transmission}}</td>
+          <td class="text-nowrap">
+            <a href="#" class="btn btn-sm btn-secondary" routerLink="../shared/mock-cars/{{car.id}}">Edit</a>
+            <a href="#" class="btn btn-sm btn-secondary" (click)="open($event, car.id, content)">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="7">
+            <mfBootstrapPaginator [rowsOnPageSet]="[10,20,30]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </section>
+  </div>
 </div>
-  <section class="card card-block">
-    <table class="table table-hover"
-           [mfData]="data"
-           #mf="mfDataTable"
-           [mfRowsOnPage]="10">
-      <thead>
-      <tr>
-        <th style="width: 8%">
-          <mfDefaultSorter by="brand">Brand</mfDefaultSorter>
-        </th>
-        <th style="width: 10%">
-          <mfDefaultSorter by="model">Model</mfDefaultSorter>
-        </th>
-        <th style="width: 30%">
-          <mfDefaultSorter by="description">Description</mfDefaultSorter>
-        </th>
-        <th style="width: 10%">
-          <mfDefaultSorter by="registration_number">Registration Number</mfDefaultSorter>
-        </th>
-        <th style="width: 8%">
-          <mfDefaultSorter by="fuelType">Fuel Type</mfDefaultSorter>
-        </th>
-        <th style="width: 14%">
-          <mfDefaultSorter by="transmission">Transmission</mfDefaultSorter>
-        </th>
-        <th style="width: 20%"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let item of mf.data">
-        <td>{{item.brand}}</td>
-        <td>{{item.model}}</td>
-        <td>{{item.description}}</td>
-        <td>{{item.registration_number}}</td>
-        <td>{{item.fuelType}}</td>
-        <td>{{item.transmission}}</td>
-        <td class="text-right">
-          <a href="#" class="btn btn-sm btn-primary" routerLink="/car/{{item.id}}">Edit</a>
-          <a href="#" class="btn btn-sm btn-danger" (click)="open($event, item.id, content)">Delete</a>
-        </td>
-      </tr>
-      </tbody>
-      <tfoot>
-      <tr>
-        <td colspan="7">
-          <mfBootstrapPaginator [rowsOnPageSet]="[10,25,50]"></mfBootstrapPaginator>
-        </td>
-      </tr>
-      </tfoot>
-    </table>
 
     <ng-template #content let-c="close" let-d="dismiss">
       <div class="modal-header">
