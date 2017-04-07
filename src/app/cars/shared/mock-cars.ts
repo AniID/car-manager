@@ -3,7 +3,7 @@ export const mockCars = [
     id: 1,
     brand: 'Audi',
     model: 'Q7',
-    description: 'Recessit sponte postquam faecis eurus',
+    description: 'After the sediment is removed spontaneously east',
     registration_number: 'OB 4444 AP',
     fuelType: 'Diesel',
     transmission: 'Automatic'
@@ -12,7 +12,7 @@ export const mockCars = [
     id: 2,
     brand: 'Mazda',
     model: 'MX-3',
-    description: 'Temperiemque tellure liquidas ut pressa',
+    description: 'Temperate climate, soil and flowing pressure',
     registration_number: 'AA 0000 XX',
     fuelType: 'Petrol',
     transmission: 'Manual'

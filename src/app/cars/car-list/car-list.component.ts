@@ -1,23 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { Car } from '../shared/car.model';
+import { Component } from '@angular/core';
+import {CarService} from "../shared/car.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 
 
 @Component({
-  selector: 'app-car-list',
-  templateUrl: './car-list.component.html'
+  templateUrl: './car-list.component.html',
+  providers: [CarService]
 })
-export class CarListComponent implements OnInit {
 
-  cars:[string] = [ 'test 1', 'test 2'];
+  export class CarListComponent {
 
-  constructor() {
-    console.log('hello from car list component');
+  constructor(private carService: CarService, private modalService: NgbModal) {}
+
+  get data() {
+    return this.carService.getCars();
   }
 
-  ngOnInit() {
-
+  open(e, id, content) {
+    e.preventDefault();
+    this.modalService.open(content).result
+      .then((result) => {
+        if (result === 'delete') {
+          this.deleteCar(id);
+        }
+      });
   }
 
-
+  private deleteCar(id: number): void {
+    this.carService.deleteCar(id);
+  }
 }

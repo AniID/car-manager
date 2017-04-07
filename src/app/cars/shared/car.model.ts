@@ -1,4 +1,5 @@
 
+
 export class Car {
 
   id: number = null;
@@ -14,6 +15,5 @@ export class Car {
       this[k] = data[k];
     });
   }
-
 }
 
