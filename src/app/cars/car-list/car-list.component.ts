@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import {CarService} from "../shared/car.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CarService } from '../shared/car.service';
 
 @Component({
+  selector: "app-cars",
   templateUrl: './car-list.component.html',
   providers: [CarService]
 })

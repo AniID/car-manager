@@ -11,13 +11,19 @@ export class CarService {
 
   addCar(car: Car): CarService {
     if (!car.id) car.id = ++this.lastId;
+
     this.cars.push(car);
+
     localStorage.setItem('cars', JSON.stringify(this.cars));
     localStorage.setItem('lastId', JSON.stringify(this.lastId));
+
     return this;
   }
 
   deleteCar(id: number): CarService {
+
+    this.cars = this.cars.filter(function (car) { car.id !== id });
+
     this.cars = this.cars.filter(car => car.id !== id);
     localStorage.setItem('cars', JSON.stringify(this.cars));
     return this;

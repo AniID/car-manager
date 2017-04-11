@@ -1,11 +1,17 @@
-<div class="row mt-4">
-  <div class="container">
-    <section class="card card-block table-responsive">
-      <table class="table table-hover"
-             [mfData]="data"
-             #mf="mfDataTable"
-             [mfRowsOnPage]="10">
-        <thead>
+<div class="container">
+
+  <section class="card card-block table-responsive">
+
+    <div class="clearfix mb-3">
+      <a class="btn btn-primary float-right" routerLink="/car">Add Car</a>
+    </div>
+
+    <table class="table table-hover"
+           [mfData]="data"
+           #mf="mfDataTable"
+           [mfRowsOnPage]="10">
+
+      <thead>
         <tr>
           <th style="width: 8%">
             <mfDefaultSorter by="brand">Brand</mfDefaultSorter>
@@ -13,7 +19,7 @@
           <th style="width: 10%">
             <mfDefaultSorter by="model">Model</mfDefaultSorter>
           </th>
-          <th style="width: 30%">
+          <th style="width: 40%">
             <mfDefaultSorter by="description">Description</mfDefaultSorter>
           </th>
           <th style="width: 10%">
@@ -25,10 +31,11 @@
           <th style="width: 14%">
             <mfDefaultSorter by="transmission">Transmission</mfDefaultSorter>
           </th>
-          <th style="width: 20%"></th>
+          <th style="width: 10%"></th>
         </tr>
-        </thead>
-        <tbody>
+      </thead>
+
+      <tbody>
         <tr *ngFor="let car of mf.data">
           <td>{{car.brand}}</td>
           <td>{{car.model}}</td>
@@ -37,21 +44,24 @@
           <td>{{car.fuelType}}</td>
           <td>{{car.transmission}}</td>
           <td class="text-nowrap">
-            <a href="#" class="btn btn-sm btn-secondary" routerLink="../shared/mock-cars/{{car.id}}">Edit</a>
-            <a href="#" class="btn btn-sm btn-secondary" (click)="open($event, car.id, content)">Delete</a>
+            <a class="btn btn-sm btn-secondary" routerLink="../shared/mock-cars/{{car.id}}">Edit</a>
+            <a class="btn btn-sm btn-secondary" (click)="open($event, car.id, content)">Delete</a>
           </td>
         </tr>
-        </tbody>
-        <tfoot>
+      </tbody>
+
+      <tfoot>
         <tr>
           <td colspan="7">
             <mfBootstrapPaginator [rowsOnPageSet]="[10,20,30]"></mfBootstrapPaginator>
           </td>
         </tr>
-        </tfoot>
-      </table>
-    </section>
-  </div>
+      </tfoot>
+
+    </table>
+
+  </section>
+
 </div>
 
     <ng-template #content let-c="close" let-d="dismiss">
