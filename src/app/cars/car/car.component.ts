@@ -32,6 +32,6 @@ export class CarComponent {
     } else {
       this.carService.addCar(this.car);
     }
-    this.router.navigateByUrl('/car-list');
+    this.router.navigateByUrl('/car');
   }
 }

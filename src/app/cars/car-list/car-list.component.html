@@ -1,8 +1,8 @@
 <div class="container">
 
-  <section class="card card-block table-responsive">
+  <section class="card card-block table-responsive table-bordered">
 
-    <div class="clearfix mb-3">
+    <div class="clearfix mb-3 mr-3">
       <a class="btn btn-primary float-right" routerLink="/car">Add Car</a>
     </div>
 
@@ -44,13 +44,13 @@
           <td>{{car.fuelType}}</td>
           <td>{{car.transmission}}</td>
           <td class="text-nowrap">
-            <a class="btn btn-sm btn-secondary" routerLink="../shared/mock-cars/{{car.id}}">Edit</a>
+            <a class="btn btn-sm btn-secondary" routerLink="/car/{{car.id}}">Edit</a>
             <a class="btn btn-sm btn-secondary" (click)="open($event, car.id, content)">Delete</a>
           </td>
         </tr>
       </tbody>
 
-      <tfoot>
+      <tfoot >
         <tr>
           <td colspan="7">
             <mfBootstrapPaginator [rowsOnPageSet]="[10,20,30]"></mfBootstrapPaginator>

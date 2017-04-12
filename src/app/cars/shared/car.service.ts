@@ -22,9 +22,8 @@ export class CarService {
 
   deleteCar(id: number): CarService {
 
-    this.cars = this.cars.filter(function (car) { car.id !== id });
-
     this.cars = this.cars.filter(car => car.id !== id);
+
     localStorage.setItem('cars', JSON.stringify(this.cars));
     return this;
   }

@@ -1,3 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+.table-bordered {
+  border: 0 ;
+
+  th, td {
+    border: 0;
+  }
+
+  thead {
+    th, td {
+      border:0;
+    }
+  }
+}
+
+ul.pagination {
+  float: left;
+}
+
+form {
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948;
+  }
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94441;
+  }
+}
+
+
