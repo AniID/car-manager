@@ -14,14 +14,6 @@ export const carRoutes: Routes = [
   {
     path: 'cars',
     component: CarListComponent
-  },
-  {
-    path: '',
-    redirectTo: '/cars',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: '/cars'
   }
+
 ];

@@ -8,7 +8,7 @@ import { Fuels, Transmissions } from '../shared/mock-cars';
 @Component({
   selector: "app-car",
   templateUrl: './car.component.html',
-  providers: [CarService]
+  providers: []
 })
 
 export class CarComponent implements OnInit {

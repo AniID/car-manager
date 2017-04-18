@@ -5,7 +5,7 @@ import { CarService } from '../shared/car.service';
 @Component({
   selector: "app-cars",
   templateUrl: './car-list.component.html',
-  providers: [CarService]
+  providers: []
 })
 
   export class CarListComponent {
@@ -23,7 +23,7 @@ import { CarService } from '../shared/car.service';
         if (result === 'delete') {
           this.deleteCar(id);
         }
-      });
+      }).catch(console.log);
   }
 
   private deleteCar(id: number): void {
