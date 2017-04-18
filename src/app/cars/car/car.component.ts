@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from '../shared/car.service';
 import { Car } from '../shared/car.model';
@@ -11,7 +11,7 @@ import { Fuels, Transmissions } from '../shared/mock-cars';
   providers: [CarService]
 })
 
-export class CarComponent {
+export class CarComponent implements OnInit {
   id = null;
   car = new Car();
   fuels = Fuels;
