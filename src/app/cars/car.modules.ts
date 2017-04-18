@@ -17,7 +17,6 @@ import { BrowserModule } from '@angular/platform-browser';
 export class CarModules {
 
   constructor () {
-    console.log('hello from car module');
   }
 
 

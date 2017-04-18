@@ -32,6 +32,6 @@ export class CarComponent implements OnInit {
     } else {
       this.carService.addCar(this.car);
     }
-    this.router.navigateByUrl('/car');
+    this.router.navigateByUrl('/cars');
   }
 }
